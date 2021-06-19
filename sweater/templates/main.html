@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+</head>
+<body>
+    <h2>Messages</h2>
+    <form method="POST" action="/add_message">
+        <input type="text" name="text">
+        <input type="text" name="tag">
+        <button type="submit">Add message</button>
+    </form>
+
+    <h3>Messages list</h3>
+{% for message in messages %}
+<div>{{ message.text }}&nbsp;
+    {% for tag in message.tags %}
+    <i>{{ tag.text }}</i>
+    {% endfor %}
+</div>
+{% endfor %}
+</body>
+</html>
